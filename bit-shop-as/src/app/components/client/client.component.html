@@ -1,0 +1,81 @@
+<div class="row w-100">
+  <div class="col-lg-5 d-flex justify-content-center p-5">
+    <form (submit)="saveProduct()">
+      <fieldset>
+        <legend>Ingresa Nuevo Producto</legend>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label">Nombre</label>
+          <input
+            [(ngModel)]="productsService.selectedProduct.name"
+            type="text"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder=""
+            name="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label">Precio</label>
+          <input
+            [(ngModel)]="productsService.selectedProduct.price"
+            type="number"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder=""
+            name="price"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="disabledSelect" class="form-label"
+            >Cantidad de Productos Disponible</label
+          >
+          <input
+            [(ngModel)]="productsService.selectedProduct.availableElemnts"
+            type="number"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder=""
+            name="availableElemnts"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="disabledTextInput" class="form-label"
+            >Descripción<noscript></noscript
+          ></label>
+          <textarea
+            [(ngModel)]="productsService.selectedProduct.description"
+            type="text"
+            id="disabledTextInput"
+            class="form-control"
+            placeholder=""
+            name="description"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn bg-purple-pastel text-white">
+          GUARDAR
+        </button>
+      </fieldset>
+    </form>
+  </div>
+  <div class="col-lg-7 p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad Disponible</th>
+          <th scope="col">Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.availableElemnts }}</td>
+          <td>{{ product.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
